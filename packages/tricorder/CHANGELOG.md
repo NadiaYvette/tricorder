@@ -45,6 +45,11 @@ and this project adheres to the [PVP](https://pvp.haskell.org/).
 
 ### Fixed
 
+- When the build command exits before GHCi starts, its output is now shown as
+  plain text in `tricorder ui`, `tricorder status` and the JSON output.
+  Previously it was rendered with `show`, so it appeared as
+  `StartupFailed "..."` with line breaks printed as a literal `\n`.
+  ([#542](https://github.com/tweag/tricorder/issues/542)) (Thanks @RyosukeDTomita)
 - Pre-built binaries on GitHub were built against paths in `/nix/store`, and
   were not portable to systems that did not have Nix installed. The binaries are
   now correctly linked to be used on non-Nix machines, and NixOS machines with
