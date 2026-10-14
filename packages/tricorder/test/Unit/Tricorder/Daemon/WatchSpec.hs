@@ -7,7 +7,7 @@ import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.HUnit (testCase, (@?=))
 import Text.Regex.TDFA.ReadRegex (parseRegex)
 
-import Atelier.Effects.Publishing.Pub qualified as Pub
+import Atelier.Effects.PubSub.Pub qualified as Pub
 
 import Tricorder.Build.Changes
     ( CabalChangeDetected (..)

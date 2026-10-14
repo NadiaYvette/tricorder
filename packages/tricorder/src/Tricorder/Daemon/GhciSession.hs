@@ -20,7 +20,7 @@ import Atelier.Effects.Conc (Conc)
 import Atelier.Effects.File (File)
 import Atelier.Effects.Log (Log)
 import Atelier.Effects.Process (Process)
-import Atelier.Effects.Publishing.Pub (Pub)
+import Atelier.Effects.PubSub.Pub (Pub)
 import Atelier.Effects.Timeout (Timeout)
 import Data.Default (def)
 import Effectful
@@ -42,7 +42,7 @@ import Effectful.Exception (throwIO)
 import Effectful.State.Static.Shared (State, evalState, state)
 import Effectful.TH (makeEffect)
 
-import Atelier.Effects.Publishing.Pub qualified as Pub
+import Atelier.Effects.PubSub.Pub qualified as Pub
 
 import Tricorder.Build (BuildProgress (..))
 import Tricorder.Daemon.GhciSession.GhciParser

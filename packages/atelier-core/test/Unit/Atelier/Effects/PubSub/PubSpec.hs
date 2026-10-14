@@ -1,11 +1,11 @@
-module Unit.Atelier.Effects.Publishing.PubSpec (test_Pub) where
+module Unit.Atelier.Effects.PubSub.PubSpec (test_Pub) where
 
 import Effectful (runPureEff)
 import Effectful.Writer.Static.Shared (execWriter)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.HUnit (testCase, (@?=))
 
-import Atelier.Effects.Publishing.Pub qualified as Pub
+import Atelier.Effects.PubSub.Pub qualified as Pub
 
 
 data TestEvent = TestEvent Text

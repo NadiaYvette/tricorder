@@ -16,11 +16,21 @@ and this project adheres to the [PVP](https://pvp.haskell.org/).
   with a better name.
 - `Atelier.Types.JSON.QuietSnake`: a copy of `Atelier.Types.QuietSnake`, but
   with a better name.
+- `Atelier.Effects.PubSub`: a copy of
+  `Atelier.Effects.Publishing`, but with a better name.
+- `Atelier.Effects.PubSub.Pub`: a copy of
+  `Atelier.Effects.Publishing.Pub`, but with a better name.
+- `Atelier.Effects.PubSub.Sub`: a copy of
+  `Atelier.Effects.Publishing.Sub`, but with a better name.
 
 ### Deprecated
 
 - `Atelier.Types.JsonReadShow`: superseded by `Atelier.Types.JSON.ReadShow`.
 - `Atelier.Types.QuietSnake`: superseded by `Atelier.Types.JSON.QuietSnake`.
+- `Atelier.Effects.Publishing`: superseded by `Atelier.Effects.PubSub`.
+- `Atelier.Effects.Publishing.runPubSub`: superseded by `Atelier.Effects.PubSub.run`.
+- `Atelier.Effects.Publishing.Pub`: superseded by `Atelier.Effects.PubSub.Pub`.
+- `Atelier.Effects.Publishing.Sub`: superseded by `Atelier.Effects.PubSub.Sub`.
 
 ## [0.7.3.0] - 2026-10-02
 

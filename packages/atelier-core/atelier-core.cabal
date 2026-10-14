@@ -61,6 +61,9 @@ library
       Atelier.Effects.Publishing
       Atelier.Effects.Publishing.Pub
       Atelier.Effects.Publishing.Sub
+      Atelier.Effects.PubSub
+      Atelier.Effects.PubSub.Pub
+      Atelier.Effects.PubSub.Sub
       Atelier.Effects.Tally
       Atelier.Effects.Timeout
       Atelier.Effects.UUID
@@ -163,8 +166,8 @@ test-suite atelier-test
       Unit.Atelier.Effects.FileWatcherSpec
       Unit.Atelier.Effects.IteratorSpec
       Unit.Atelier.Effects.LogSpec
-      Unit.Atelier.Effects.Publishing.PubSpec
-      Unit.Atelier.Effects.PublishingSpec
+      Unit.Atelier.Effects.PubSub.PubSpec
+      Unit.Atelier.Effects.PubSubSpec
       Unit.Atelier.Effects.TallySpec
       Unit.Atelier.Effects.YieldSpec
       Unit.Atelier.Types.Semaphore.STMSpec
