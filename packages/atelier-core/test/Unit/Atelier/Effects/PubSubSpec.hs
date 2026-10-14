@@ -1,4 +1,4 @@
-module Unit.Atelier.Effects.PublishingSpec (test_Publishing) where
+module Unit.Atelier.Effects.PubSubSpec (test_PubSub) where
 
 import Control.Concurrent.MVar (newEmptyMVar, putMVar, takeMVar)
 import Data.Time (UTCTime, getCurrentTime)
@@ -10,24 +10,24 @@ import Test.Tasty.HUnit (testCase, (@?=))
 import Atelier.Effects.Chan (Chan, runChan)
 import Atelier.Effects.Clock (Clock, runClock, runClockConst)
 import Atelier.Effects.Conc (Conc, runConc)
-import Atelier.Effects.Publishing (runPubSub)
-import Atelier.Effects.Publishing.Pub (Pub)
-import Atelier.Effects.Publishing.Sub (Sub)
+import Atelier.Effects.PubSub.Pub (Pub)
+import Atelier.Effects.PubSub.Sub (Sub)
 
-import Atelier.Effects.Publishing.Pub qualified as Pub
-import Atelier.Effects.Publishing.Sub qualified as Sub
+import Atelier.Effects.PubSub qualified as PubSub
+import Atelier.Effects.PubSub.Pub qualified as Pub
+import Atelier.Effects.PubSub.Sub qualified as Sub
 
 
 data TestEvent = TestEvent Text
     deriving stock (Eq, Show)
 
 
-test_Publishing :: TestTree
-test_Publishing =
+test_PubSub :: TestTree
+test_PubSub =
     testGroup
-        "Publishing"
+        "PubSub"
         [ testGroup
-            "runPubSub"
+            "run"
             [ testCase "listener receives a published event" do
                 result <- runPubSubTest $ do
                     received <- liftIO newEmptyMVar
@@ -73,7 +73,7 @@ runPubSubTest =
         . runConc
         . runClock
         . runChan
-        . runPubSub @TestEvent
+        . PubSub.run @TestEvent
 
 
 runPubSubTestWithClock
@@ -86,4 +86,4 @@ runPubSubTestWithClock t =
         . runConc
         . runClockConst t
         . runChan
-        . runPubSub @TestEvent
+        . PubSub.run @TestEvent

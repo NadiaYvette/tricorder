@@ -1,13 +1,13 @@
 module Unit.Tricorder.Daemon.GhciSessionSpec (test_GhciSession) where
 
-import Atelier.Effects.Publishing.Pub (Pub)
+import Atelier.Effects.PubSub.Pub (Pub)
 import Control.Exception (ErrorCall (..))
 import Effectful (IOE, runEff)
 import Effectful.Exception (try)
 import Test.Tasty (TestTree, testGroup)
 import Test.Tasty.HUnit (assertBool, testCase, (@?=))
 
-import Atelier.Effects.Publishing.Pub qualified as Pub
+import Atelier.Effects.PubSub.Pub qualified as Pub
 import Data.Map.Strict qualified as Map
 import Data.Set qualified as Set
 

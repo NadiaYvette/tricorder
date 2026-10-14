@@ -53,11 +53,11 @@ import Prelude hiding (catMaybes, map, mapMaybe)
 
 import Atelier.Effects.Chan (Chan)
 import Atelier.Effects.Conc (Conc)
-import Atelier.Effects.Publishing.Sub (Sub)
+import Atelier.Effects.PubSub.Sub (Sub)
 
 import Atelier.Effects.Chan qualified as Chan
 import Atelier.Effects.Conc qualified as Conc
-import Atelier.Effects.Publishing.Sub qualified as Sub
+import Atelier.Effects.PubSub.Sub qualified as Sub
 
 
 -- * Yield

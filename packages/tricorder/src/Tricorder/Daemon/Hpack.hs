@@ -6,15 +6,15 @@ import Atelier.Effects.Conc (Conc)
 import Atelier.Effects.Debounce (Debounce)
 import Atelier.Effects.FileWatcher (FileWatcher)
 import Atelier.Effects.Log (Log)
-import Atelier.Effects.Publishing (runPubSub)
-import Atelier.Effects.Publishing.Pub (Pub)
+import Atelier.Effects.PubSub.Pub (Pub)
 import Effectful.Reader.Static (Reader)
 
 import Atelier.Effects.Conc qualified as Conc
 import Atelier.Effects.FileWatcher qualified as FileWatcher
 import Atelier.Effects.Log qualified as Log
-import Atelier.Effects.Publishing.Pub qualified as Pub
-import Atelier.Effects.Publishing.Sub qualified as Sub
+import Atelier.Effects.PubSub qualified as PubSub
+import Atelier.Effects.PubSub.Pub qualified as Pub
+import Atelier.Effects.PubSub.Sub qualified as Sub
 import Data.List qualified as List
 import Effectful.Reader.Static qualified as Reader
 
@@ -35,7 +35,7 @@ main
        , Reader ProjectRoot :> es
        )
     => Eff es ()
-main = runPubSub @RePack $ Conc.scoped do
+main = PubSub.run @RePack $ Conc.scoped do
     hpackInPath <- Hpack.hpackIsInPath
     when hpackInPath do
         projectRoot <- Reader.ask

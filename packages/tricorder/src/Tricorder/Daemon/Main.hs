@@ -11,7 +11,6 @@ import Atelier.Effects.File (runFile)
 import Atelier.Effects.FileSystem (runFileSystemIO)
 import Atelier.Effects.FileWatcher (runFileWatcherIO)
 import Atelier.Effects.Process (runProcessIO)
-import Atelier.Effects.Publishing (runPubSub)
 import Atelier.Effects.Timeout (runTimeout)
 import Atelier.Signal (installTerminationHandler)
 import Data.Default (def)
@@ -23,6 +22,7 @@ import Atelier.Effects.Conc qualified as Conc
 import Atelier.Effects.FileSystem.Glob qualified as Glob
 import Atelier.Effects.Input qualified as Input
 import Atelier.Effects.Log qualified as Log
+import Atelier.Effects.PubSub qualified as PubSub
 
 import Tricorder.Build (BuildId (..), BuildPhase)
 import Tricorder.Config (inputLoadedConfig)
@@ -88,7 +88,7 @@ main =
         . evalState @IdleTimeout def
         . Input.fromState @IdleTimeout
         . IdleTimer.quitOnTimeout
-        . runPubSub @BuildPhase
+        . PubSub.run @BuildPhase
         . Hpack.run
         . Hackage.run
         . PackageStore.run

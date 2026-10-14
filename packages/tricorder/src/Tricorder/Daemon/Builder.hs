@@ -13,7 +13,7 @@ where
 import Atelier.Effects.Clock (Clock, UTCTime)
 import Atelier.Effects.FileWatcher (FileEvent)
 import Atelier.Effects.Log (Log)
-import Atelier.Effects.Publishing.Pub (Pub)
+import Atelier.Effects.PubSub.Pub (Pub)
 import Atelier.Time (nominalDiffTime)
 import Data.Time (diffUTCTime)
 import Effectful (Effect, inject)
@@ -26,7 +26,7 @@ import System.FilePath (normalise)
 
 import Atelier.Effects.Clock qualified as Clock
 import Atelier.Effects.Log qualified as Log
-import Atelier.Effects.Publishing.Pub qualified as Pub
+import Atelier.Effects.PubSub.Pub qualified as Pub
 import Data.Map.Strict qualified as Map
 import Data.Set qualified as Set
 import Effectful.State.Static.Shared qualified as State

@@ -9,9 +9,8 @@ import Atelier.Effects.FileWatcher (FileEvent, FileWatcher)
 import Atelier.Effects.Input (Input, input)
 import Atelier.Effects.Log (Log)
 import Atelier.Effects.Process (Process)
-import Atelier.Effects.Publishing (runPubSub)
-import Atelier.Effects.Publishing.Pub (Pub)
-import Atelier.Effects.Publishing.Sub (Sub)
+import Atelier.Effects.PubSub.Pub (Pub)
+import Atelier.Effects.PubSub.Sub (Sub)
 import Data.List (isSuffixOf)
 import Effectful.Concurrent.MVar (newEmptyMVar, takeMVar, tryPutMVar)
 import Effectful.Concurrent.STM (Concurrent, atomically, newEmptyTMVar, takeTMVar, writeTMVar)
@@ -24,8 +23,9 @@ import Atelier.Effects.Conc qualified as Conc
 import Atelier.Effects.FileSystem qualified as FileSystem
 import Atelier.Effects.FileWatcher qualified as FileWatcher
 import Atelier.Effects.Log qualified as Log
-import Atelier.Effects.Publishing.Pub qualified as Pub
-import Atelier.Effects.Publishing.Sub qualified as Sub
+import Atelier.Effects.PubSub qualified as PubSub
+import Atelier.Effects.PubSub.Pub qualified as Pub
+import Atelier.Effects.PubSub.Sub qualified as Sub
 import Data.Map.Strict qualified as Map
 import Effectful.Reader.Static qualified as Reader
 import Effectful.State.Static.Shared qualified as State
@@ -115,12 +115,12 @@ main
        )
     => Eff es Void
 main =
-    runPubSub @ReloadSession
-        . runPubSub @WatchedFile
-        . runPubSub @CabalChangeDetected
-        . runPubSub @SourceChangeDetected
-        . runPubSub @RestartBuilder
-        . runPubSub @ReloadBuilder
+    PubSub.run @ReloadSession
+        . PubSub.run @WatchedFile
+        . PubSub.run @CabalChangeDetected
+        . PubSub.run @SourceChangeDetected
+        . PubSub.run @RestartBuilder
+        . PubSub.run @ReloadBuilder
         . Conc.restartableFork waitForReloadSession
         $ do
             Log.debug "Before session"

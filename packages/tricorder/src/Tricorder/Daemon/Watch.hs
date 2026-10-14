@@ -17,13 +17,13 @@ import Atelier.Effects.FileWatcher
     , dirWhere
     , excluding
     )
-import Atelier.Effects.Publishing.Pub (Pub)
+import Atelier.Effects.PubSub.Pub (Pub)
 import System.FilePath (takeExtension, takeFileName)
 import Text.Regex.TDFA (ExecOption (..), blankCompOpt, blankExecOpt, match)
 import Text.Regex.TDFA.TDFA (patternToRegex)
 
 import Atelier.Effects.FileWatcher qualified as FileWatcher
-import Atelier.Effects.Publishing.Pub qualified as Pub
+import Atelier.Effects.PubSub.Pub qualified as Pub
 
 import Tricorder.Build.Changes
     ( CabalChangeDetected (..)

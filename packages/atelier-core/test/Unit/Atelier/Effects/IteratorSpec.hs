@@ -9,12 +9,12 @@ import Test.Tasty.HUnit (testCase, (@?=))
 import Atelier.Effects.Chan (Chan, runChan)
 import Atelier.Effects.Clock (Clock, runClock)
 import Atelier.Effects.Conc (Conc, fork, runConc)
-import Atelier.Effects.Publishing (runPubSub)
-import Atelier.Effects.Publishing.Pub (Pub)
-import Atelier.Effects.Publishing.Sub (Sub)
+import Atelier.Effects.PubSub.Pub (Pub)
+import Atelier.Effects.PubSub.Sub (Sub)
 
 import Atelier.Effects.Iterator qualified as Iter
-import Atelier.Effects.Publishing.Pub qualified as Pub
+import Atelier.Effects.PubSub qualified as PubSub
+import Atelier.Effects.PubSub.Pub qualified as Pub
 
 
 test_Iterator :: TestTree
@@ -118,4 +118,4 @@ runTest =
         . runConc
         . runClock
         . runChan
-        . runPubSub @Int
+        . PubSub.run @Int
